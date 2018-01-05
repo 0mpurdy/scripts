@@ -1,1 +1,1 @@
-# Useful Windows scripts
+# Useful scripts and config files
