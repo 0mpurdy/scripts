@@ -140,41 +140,52 @@ Function Import-ConsoleColor {
  
 } #Import-ConsoleColor
 
+# https://social.technet.microsoft.com/Forums/en-US/7c87371d-5a9c-4463-9290-73e339f82b4e/how-do-i-change-the-text-colors-in-a-powershell-command-window?forum=win10itprogeneral
+Function Set-ConsoleTokenColorLight {
+    Set-PSReadlineOption -TokenKind comment -ForegroundColor black
+    Set-PSReadlineOption -TokenKind none -ForegroundColor black
+    Set-PSReadlineOption -TokenKind command -ForegroundColor black
+    Set-PSReadlineOption -TokenKind parameter -ForegroundColor black
+    Set-PSReadlineOption -TokenKind variable -ForegroundColor black
+    Set-PSReadlineOption -TokenKind type -ForegroundColor black
+    Set-PSReadlineOption -TokenKind number -ForegroundColor black
+    Set-PSReadlineOption -TokenKind string -ForegroundColor black
+    Set-PSReadlineOption -TokenKind operator -ForegroundColor black
+    Set-PSReadlineOption -TokenKind member -ForegroundColor black
+
+    Set-PSReadlineOption -TokenKind comment -BackgroundColor white
+    Set-PSReadlineOption -TokenKind none -BackgroundColor white
+    Set-PSReadlineOption -TokenKind command -BackgroundColor white
+    Set-PSReadlineOption -TokenKind parameter -BackgroundColor white
+    Set-PSReadlineOption -TokenKind variable -BackgroundColor white
+    Set-PSReadlineOption -TokenKind type -BackgroundColor white
+    Set-PSReadlineOption -TokenKind number -BackgroundColor white
+    Set-PSReadlineOption -TokenKind string -BackgroundColor white
+    Set-PSReadlineOption -TokenKind operator -BackgroundColor white
+    Set-PSReadlineOption -TokenKind member -BackgroundColor white  
+}
+
 [console]::ForegroundColor = "Green"
 [console]::BackgroundColor = "black"
 
 
-Get-ConsoleColor
-Show-ConsoleColor
-Test-ConsoleColor
-Export-ConsoleColor -Path c:\dev\console-color.csv
-Import-ConsoleColor -Path c:\dev\psdark.csv
+#Get-ConsoleColor
+#Show-ConsoleColor
+#Test-ConsoleColor
+#Export-ConsoleColor -Path c:\dev\console-color.csv
 
-Write-Output $currentTime
+#Write-Output $currentTime
 
-# https://social.technet.microsoft.com/Forums/en-US/7c87371d-5a9c-4463-9290-73e339f82b4e/how-do-i-change-the-text-colors-in-a-powershell-command-window?forum=win10itprogeneral
-# Set-PSReadlineOption -TokenKind comment -ForegroundColor white
-# Set-PSReadlineOption -TokenKind none -ForegroundColor white
-# Set-PSReadlineOption -TokenKind command -ForegroundColor white
-# Set-PSReadlineOption -TokenKind parameter -ForegroundColor white
-# Set-PSReadlineOption -TokenKind variable -ForegroundColor white
-# Set-PSReadlineOption -TokenKind type -ForegroundColor white
-# Set-PSReadlineOption -TokenKind number -ForegroundColor white
-# Set-PSReadlineOption -TokenKind string -ForegroundColor white
-# Set-PSReadlineOption -TokenKind operator -ForegroundColor white
-# Set-PSReadlineOption -TokenKind member -ForegroundColor white
+#Get-PSReadlineOption
 
-# Set-PSReadlineOption -TokenKind comment -BackgroundColor black
-# Set-PSReadlineOption -TokenKind none -BackgroundColor black
-# Set-PSReadlineOption -TokenKind command -BackgroundColor black
-# Set-PSReadlineOption -TokenKind parameter -BackgroundColor black
-# Set-PSReadlineOption -TokenKind variable -BackgroundColor black
-# Set-PSReadlineOption -TokenKind type -BackgroundColor black
-# Set-PSReadlineOption -TokenKind number -BackgroundColor black
-# Set-PSReadlineOption -TokenKind string -BackgroundColor black
-# Set-PSReadlineOption -TokenKind operator -BackgroundColor black
-# Set-PSReadlineOption -TokenKind member -BackgroundColor black
+# dark theme
+# Import-ConsoleColor -Path ./psdark.csv
+# Set-PSReadlineOption -ResetTokenColors 
 
-Get-PSReadlineOption
-Set-PSReadlineOption -ResetTokenColors 
-Get-PSReadlineOption
+# light theme
+Import-ConsoleColor -Path ./pslight.csv
+Set-ConsoleTokenColorLight
+#Get-PSReadlineOption
+
+Clear-Host
+Write-Output "Useful Cmdlets: Get-PSReadlineOption"

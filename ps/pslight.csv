@@ -1,0 +1,2 @@
+ForegroundColor,BackgroundColor,ErrorForegroundColor,ErrorBackgroundColor,WarningForegroundColor,WarningBackgroundColor,DebugForegroundColor,DebugBackgroundColor,VerboseForegroundColor,VerboseBackgroundColor,ProgressForegroundColor,ProgressBackgroundColor
+DarkGray,White,Magenta,White,Gray,White,DarkRed,White,DarkCyan,White,Gray,White
