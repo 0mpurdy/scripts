@@ -1,3 +1,7 @@
+# Some example exercises made for the python teacher
+# course. Showcases loops and some basic mathematical
+# operators.
+
 size = 7
 
 print(size, "layers from left")
