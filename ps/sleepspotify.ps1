@@ -10,5 +10,4 @@ schtasks.exe /create /TN sleepspotify /sc once /ST $bedtime /tr "taskkill /im Sp
 schtasks.exe /query | grep -A 4 -B 4 spot
 
 # Give user time to read the output
- Read-Host -Prompt "Press enter to quit"
- 
+Read-Host -Prompt "Press enter to quit"
