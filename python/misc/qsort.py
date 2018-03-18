@@ -18,9 +18,9 @@ def qsort1(numbers):
             larger.append(number)
         else:
             smaller.append(number)
-    result = qsort(smaller)
+    result = qsort1(smaller)
     result.append(pivot)
-    result.extend(qsort(larger))
+    result.extend(qsort1(larger))
     return result
 
 # not in place
@@ -41,7 +41,7 @@ def qsort2(arr):
             smaller.append(item)
         else:
             equal.append(item)
-    return qsort(smaller) + equal + qsort(larger)
+    return qsort2(smaller) + equal + qsort2(larger)
 
 # adapted from https://stackoverflow.com/questions/18262306/quicksort-with-python
 def partition(arr, begin, end):
