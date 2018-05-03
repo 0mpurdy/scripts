@@ -42,7 +42,7 @@ def get_files(directory, ignored_dirs=None):
         for ifile in files:
             yield os.path.join(root, ifile)
 
-def set_folders_lower(root):
+def subdirs_lower(root):
     """Make all foldernames in the selected directory lowercase"""
     root, dirs, files = next(os.walk(root))
     for item in dirs:
@@ -50,3 +50,13 @@ def set_folders_lower(root):
         newpath = os.path.join(root, item.lower())
         print(oldpath, '->', newpath)
         os.rename(oldpath, newpath)
+
+def subdirs_prefix(root, prefix):
+    """Add a prefix to all of the subdirectories in the selected folder"""
+    root, dirs, files = next(os.walk(root))
+    for item in dirs:
+        oldpath = os.path.join(root, item)
+        newpath = os.path.join(root, prefix + item)
+        print(oldpath, '->', newpath)
+        os.rename(oldpath, newpath)
+
