@@ -1,3 +1,5 @@
+"""Basic file system management"""
+
 import os
 
 def extract_name(path, suffix):
@@ -39,3 +41,12 @@ def get_files(directory, ignored_dirs=None):
         dirs[:] = [d for d in dirs if d not in ignored_dirs]
         for ifile in files:
             yield os.path.join(root, ifile)
+
+def set_folders_lower(root):
+    """Make all foldernames in the selected directory lowercase"""
+    root, dirs, files = next(os.walk(root))
+    for item in dirs:
+        oldpath = os.path.join(root, item)
+        newpath = os.path.join(root, item.lower())
+        print(oldpath, '->', newpath)
+        os.rename(oldpath, newpath)
